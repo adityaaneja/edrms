@@ -1,0 +1,106 @@
+
+###############################
+## Common Alfresco Properties #
+###############################
+
+dir.root=<%= node['edrms']['contentstore_path'] %>
+
+alfresco.context=alfresco
+alfresco.host=<%= node['hostname'] %>
+alfresco.port=8080
+alfresco.protocol=http
+
+share.context=share
+share.host=<%= node['hostname'] %>
+share.port=8080
+share.protocol=http
+
+
+db.username=alfresco
+db.password=alfresco
+db.name=alfresco
+db.host=localhost
+db.port=3306
+db.driver=com.mysql.jdbc.Driver
+db.url=jdbc:mysql://${db.host}:${db.port}/${db.name}?useUnicode=yes&characterEncoding=UTF-8
+#db.driver=org.postgresql.Driver
+#db.port=5432
+#db.url=jdbc:postgresql://${db.host}:${db.port}/${db.name}
+db.pool.initial=10
+db.pool.min=10
+db.pool.idle=50
+# This values should be set higher than 90. Defaults to 90 until you have verified
+# max conenctions for your database.
+db.pool.max=90
+
+db.pool.validate.return=false
+db.pool.validate.borrow=true
+db.pool.validate.query=SELECT 1
+db.pool.evict.validate=false
+
+db.pool.abandoned.detect=false
+db.pool.abandoned.time=300
+#
+# db.pool.abandoned.log=true (logAbandoned) adds overhead (http://commons.apache.org/dbcp/configuration.html)
+# and also requires db.pool.abandoned.detect=true (removeAbandoned)
+#
+db.pool.abandoned.log=false
+
+
+### database connection properties ###
+#db.driver=org.postgresql.Driver
+#db.username=alfresco
+#db.password=alfresco
+#db.name=alfresco
+#db.url=jdbc:postgresql://localhost/alfresco
+# Note: your database must also be able to accept at least this many connections.  Please see your database documentation for instructions on how to configure this.
+#db.pool.max=275
+#db.pool.validate.query=SELECT 1
+
+# The server mode. Set value here
+# UNKNOWN | TEST | BACKUP | PRODUCTION
+system.serverMode=UNKNOWN
+
+### FTP Server Configuration ###
+ftp.port=21
+
+### RMI registry port for JMX ###
+alfresco.rmi.services.port=50500
+
+### External executable locations ###
+#ooo.exe=@@BITROCK_LIBREOFFICE_PROGRAM_DIR@@
+#ooo.enabled=true
+#ooo.port=8100
+#img.root=/opt/alfresco-community/common
+#img.dyn=${img.root}/lib
+#img.exe=${img.root}/bin/convert
+#alfresco-pdf-renderer.root=/opt/alfresco-community/common/alfresco-pdf-renderer
+#alfresco-pdf-renderer.exe=${alfresco-pdf-renderer.root}/alfresco-pdf-renderer
+
+#jodconverter.enabled=false
+#jodconverter.officeHome=
+#jodconverter.portNumbers=8100
+
+### Initial admin password ###
+alfresco_user_store.adminpassword=eac2d371655e14c1dc0744fd60a70251
+
+### E-mail site invitation setting ###
+notification.email.siteinvite=false
+
+### License location ###
+dir.license.external=/opt/alfresco-community
+
+### Solr indexing ###
+index.subsystem.name=solr4
+dir.keystore=${dir.root}/keystore
+solr.host=localhost
+solr.port.ssl=8443
+
+### Allow extended ResultSet processing
+security.anyDenyDenies=false
+
+### Smart Folders Config Properties ###
+smart.folders.enabled=false
+
+### Remote JMX (Default: disabled) ###
+alfresco.jmx.connector.enabled=false
