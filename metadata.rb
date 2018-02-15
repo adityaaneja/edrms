@@ -19,6 +19,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 #
 # source_url 'https://github.com/<insert_org_here>/edrms'
 
+depends 'java'
 depends 'apache2'
 depends 'openssl', '>= 8.1.0'
 depends 'alfresco-appserver'
